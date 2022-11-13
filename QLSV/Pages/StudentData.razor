@@ -1,0 +1,16 @@
+﻿@page "/student"
+@using QLSV.Data
+<PageTitle>Student</PageTitle>
+<Button Type="primary" @onclick="AddStudent">ADD</Button>
+
+<Table TItem="StudentViewModel" DataSource="studentsViewModels" PageSize="1">
+    <Column @bind-Field="context.stt"></Column>
+    <Column @bind-Field="context.ten"></Column>
+    <Column @bind-Field="context.gioitinh"></Column>
+    <Column @bind-Field="context.tuoi"></Column>
+    <Column @bind-Field="context.diemtoan"></Column>
+    <Column @bind-Field="context.diemanh"></Column>
+    <Column @bind-Field="context.diemvan"></Column>
+    <Column @bind-Field="context.diemtb"></Column>
+</Table>
+    

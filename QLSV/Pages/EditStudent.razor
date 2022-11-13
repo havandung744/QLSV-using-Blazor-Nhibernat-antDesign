@@ -1,0 +1,67 @@
+﻿@using QLSV.Data
+@inject NavigationManager Navigation
+    <Form Model="EditModel">
+        <Template style="height:90%">
+            <Row Gutter="16"> 
+                <AntDesign.Col Span="6">
+
+                </AntDesign.Col>
+                <AntDesign.Col Span="20">
+                    <Text>Họ tên:</Text>
+                    <Input @bind-Value="@EditModel.ten"  Style="text-align: center;"/>
+                </AntDesign.Col>
+            <AntDesign.Col Span="20">
+                <Text>Tuổi:</Text>
+                <Input @bind-Value="@EditModel.tuoi" Style="text-align: center;" />
+            </AntDesign.Col>
+          
+          
+           
+            </Row>
+            <br />
+            <Row Gutter="16">
+                <AntDesign.Col Span="12">
+                    <Text>Giới tính:</Text>
+                    <Select DataSource="@sexs"
+                        @bind-Value="@EditModel.gioitinh"
+                        ValueName="@nameof(Sex.Name)"
+                        LabelName="@nameof(Sex.Name)"
+                        Style="width:120px">
+                    </Select>
+                </AntDesign.Col>
+               
+            </Row>
+            <br />
+
+            <br />
+            <Row Gutter="16">
+                <AntDesign.Col Span="8">
+                    <Text>Điểm toán:</Text>
+                    <AntDesign.InputNumber @bind-Value="@EditModel.diemtoan" Min="0" Max="10"/>
+                </AntDesign.Col>
+                <AntDesign.Col Span="8">
+                    <Text>Điểm văn:</Text>
+                    <AntDesign.InputNumber @bind-Value="@EditModel.diemvan" Min="0" Max="10" />
+                </AntDesign.Col>
+                <AntDesign.Col Span="8">
+                    <Text>Điểm anh:</Text>
+                    <AntDesign.InputNumber @bind-Value="@EditModel.diemanh" Min="0" Max="10" />
+                </AntDesign.Col>
+                
+            </Row>
+            <br />
+            <br />
+          @*  <br />
+            <Row>
+                <AntDesign.Col Span="7">
+
+                </AntDesign.Col>
+                <AntDesign.Col Span="12">
+                    <Button Type="default">Cancel</Button>
+                    <Button Type="primary" OnClick="UpdateStudent">Submit</Button>
+                </AntDesign.Col>
+            </Row>*@
+        </Template>
+    </Form>
+   
+
