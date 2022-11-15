@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "N01n/UIMzvAyb0BgsQhG8blqyYsVrtUW6aGfUTjc9kfjEi9Ysn8fRU4tnAxxzTlP59ZaL9lsEPEABiUg3Q4xcg==",
+  "dgSpecHash": "sgRNNXSjMO65UfhiZll10pa212sStBM7aDDHpchZyiDX8l/ONLwrPtgewXmIe6j0vBAho5giwvEtAQUKqfYfQQ==",
   "success": true,
   "projectFilePath": "C:\\LearnC#\\QLSV\\QLSV\\QLSV.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\hdung\\.nuget\\packages\\antlr3.runtime\\3.5.2-rc1\\antlr3.runtime.3.5.2-rc1.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\hdung\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\chartjs.blazor.fork.2.0.2.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\fluentnhibernate\\3.1.0\\fluentnhibernate.3.1.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\iesi.collections\\4.0.4\\iesi.collections.4.0.4.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
@@ -18,7 +19,7 @@
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.0\\microsoft.aspnetcore.components.web.6.0.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\hdung\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\hdung\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.0-preview2.22314.2\\microsoft.data.sqlclient.5.1.0-preview2.22314.2.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0-preview2.22311.2\\microsoft.data.sqlclient.sni.runtime.5.1.0-preview2.22311.2.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
@@ -42,6 +43,7 @@
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\hdung\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\nhibernate\\5.3.14\\nhibernate.5.3.14.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\oneof\\2.1.155\\oneof.2.1.155.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",

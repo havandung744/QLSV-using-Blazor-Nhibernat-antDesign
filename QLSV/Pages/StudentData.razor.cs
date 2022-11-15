@@ -8,8 +8,10 @@ namespace QLSV.Pages
         [Inject] IStudentService studentService { get; set; }
         List<Student> students { get; set; }
         List<StudentViewModel> studentsViewModels { get; set; }
-        EditStudent editStudent { get; set; }
+        EditStudent editStudent = new EditStudent();
         bool visible = false;
+        int stt;
+        bool isUpdate = false;
         protected override async Task OnInitializedAsync()
         {
             studentsViewModels = new();
@@ -27,7 +29,7 @@ namespace QLSV.Pages
         {
             var models = new List<StudentViewModel>();
             StudentViewModel model;
-            int stt = 1;
+
             datas.ForEach(c =>
             {
                 model = new StudentViewModel();
@@ -40,6 +42,8 @@ namespace QLSV.Pages
                 model.diemvan = c.Literature;
                 model.diemtb = c.Medium;
                 model.id = c.Id;
+                model.hocluc = c.AcademicAbility;
+                
                 models.Add(model);
                 stt++;
             });
@@ -47,9 +51,10 @@ namespace QLSV.Pages
         }
 
         void AddStudent()
-        {
+         {
+            isUpdate = false;
             var studentData = new Student();
-            //ShowStudentDetail(studentData);
+            ShowStudentDetail(studentData);
 
         }
 
@@ -59,7 +64,19 @@ namespace QLSV.Pages
             visible = true;
         }
 
+        async Task Save(Student data)
+        {
+            var resultAdd = await studentService.AddOrUpdateStudent(data);
+            await LoadAsync();
+            visible = false;
+        }
 
+        void Edit(StudentViewModel studentViewModel)
+        {
+            isUpdate = true;
+            var studentData = students.FirstOrDefault(c => c.Id == studentViewModel.id);
+            ShowStudentDetail(studentData);
+        }
     }
 
 }

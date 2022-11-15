@@ -4,7 +4,7 @@ namespace QLSV.Data
 {
     public class StudentViewModel
     {
-        public int id;
+        public string id;
         [Display(Name = "No.")]
         public int stt { get; set; }
 
@@ -25,5 +25,9 @@ namespace QLSV.Data
 
         [Display(Name = "Điểm trung bình")]
         public float diemtb { get; set; }
+
+        [Display(Name = "Học lực")]
+        public string hocluc { get; set; }
+
     }
 }

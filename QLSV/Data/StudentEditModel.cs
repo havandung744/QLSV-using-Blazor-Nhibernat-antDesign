@@ -4,7 +4,7 @@ namespace QLSV.Data
 {
     public class StudentEditModel
     {
-        public int id { get; set; }
+        public string id { get; set; }
         //public int stt { get; set; }
 
         public string ten { get; set; }
@@ -17,5 +17,6 @@ namespace QLSV.Data
         public float diemanh { get; set; }
 
         public float diemtb { get; set; }
+
     }
 }

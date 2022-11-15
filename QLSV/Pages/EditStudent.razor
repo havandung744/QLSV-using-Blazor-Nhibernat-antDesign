@@ -12,7 +12,8 @@
                 </AntDesign.Col>
             <AntDesign.Col Span="20">
                 <Text>Tuổi:</Text>
-                <Input @bind-Value="@EditModel.tuoi" Style="text-align: center;" />
+                @*<Input @bind-Value="@EditModel.tuoi" Style="text-align: center;" />*@
+                <AntDesign.InputNumber @bind-Value="@EditModel.tuoi" Min="0" Max="200" />
             </AntDesign.Col>
           
           
@@ -22,12 +23,18 @@
             <Row Gutter="16">
                 <AntDesign.Col Span="12">
                     <Text>Giới tính:</Text>
-                    <Select DataSource="@sexs"
-                        @bind-Value="@EditModel.gioitinh"
-                        ValueName="@nameof(Sex.Name)"
+                  @*  <Select DataSource="@sexs"
+                        @bind-Value="@EditModel.gioitinh" 
+                        ValueName="@nameof(Sex.value)"  
                         LabelName="@nameof(Sex.Name)"
                         Style="width:120px">
-                    </Select>
+                        <option value=0>Nam</option>
+                        <option value=1>Nữ</option>
+                    </Select>*@
+                    <InputSelect @bind-Value="EditModel.gioitinh">
+                        <option value=0>Nam</option>
+                        <option value=1>Nữ</option>
+                    </InputSelect>
                 </AntDesign.Col>
                
             </Row>
@@ -51,16 +58,16 @@
             </Row>
             <br />
             <br />
-          @*  <br />
+            <br />
             <Row>
                 <AntDesign.Col Span="7">
 
                 </AntDesign.Col>
                 <AntDesign.Col Span="12">
-                    <Button Type="default">Cancel</Button>
+                    <Button Type="default" OnClick="Cancel">Cancel</Button>
                     <Button Type="primary" OnClick="UpdateStudent">Submit</Button>
                 </AntDesign.Col>
-            </Row>*@
+            </Row>
         </Template>
     </Form>
    
