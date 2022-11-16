@@ -1,3 +1,13 @@
+/* _content/QLSV/Pages/StudentData.razor.rz.scp.css */
+.ant-input[b-al299rg4rs]{
+    width: 50%;
+    margin-top: 50%;
+    background-color: yellow;
+}
+
+Button[b-al299rg4rs]{
+    background-color: orange;
+}
 /* _content/QLSV/Shared/MainLayout.razor.rz.scp.css */
 .page[b-iir38kwust] {
     position: relative;

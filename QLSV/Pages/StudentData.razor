@@ -3,27 +3,38 @@
 @using System.ComponentModel
 @using AntDesign.TableModels
 <PageTitle>Student</PageTitle>
-<Button Type="primary" @onclick="AddStudent">ADD</Button>
-
+<Button Type="primary" @onclick="AddStudent">Thêm</Button>
+<br>
+<Form Model="@taskSearchStudents" Style="display:flex; margin-top: 10px"
+      OnFinish="Search">
+                    <FormItem Style="width: 70%">  
+                        <Input @bind-Value="@context.Name"/>
+                    </FormItem>
+                    <FormItem WrapperColOffset="8" WrapperColSpan="16">
+                        <Button Type="@ButtonType.Primary" HtmlType="submit">
+                            Tìm kiếm
+                        </Button>
+                    </FormItem>
+                </Form>
 <Table TItem="StudentViewModel" DataSource="studentsViewModels" PageSize="10">
-    <Column @bind-Field="context.stt"></Column>
-    <Column @bind-Field="context.ten"></Column>
+    <Column @bind-Field="context.stt" Sortable></Column>
+    <Column @bind-Field="context.ten" Sortable></Column>
     <Column @bind-Field="context.gioitinh">@(context.gioitinh==0 ? "Nam" : "Nữ")</Column>
     <Column @bind-Field="context.tuoi"></Column>
     <Column @bind-Field="context.diemtoan"></Column>
     <Column @bind-Field="context.diemanh"></Column>
     <Column @bind-Field="context.diemvan"></Column>
-    <Column @bind-Field="context.diemtb"></Column>
+    <Column @bind-Field="context.diemtb" Sortable></Column>
     <Column @bind-Field="context.hocluc"></Column>
-    <ActionColumn Title="Action" Fixed="right" Class="btn-link">
+    <ActionColumn Title="Hành động" Fixed="right" Class="btn-link">
         <Icon Type="edit" Theme="outline" @onclick="() => Edit(context)" Width="20" Height="20" />
        
-        @*<Popconfirm Title="Sure to delete?"
-                    OnConfirm="()=> DeleteSinhVienAsync(context.id)"
-                    OkText="Yes"
-                    CancelText="No">
+        <Popconfirm Title="Xác nhận xóa?"
+                    OnConfirm="()=> DeleteStudent(context)"
+                    OkText="Có"
+                    CancelText="Không">
             <Icon Type="delete" Theme="outline" Width="20" Height="20" />
-        </Popconfirm>*@
+        </Popconfirm>
     </ActionColumn>
 </Table>
 

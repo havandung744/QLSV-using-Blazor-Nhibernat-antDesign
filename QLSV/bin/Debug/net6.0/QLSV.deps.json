@@ -9,6 +9,7 @@
       "QLSV/1.0.0": {
         "dependencies": {
           "AntDesign": "0.12.7",
+          "AntDesign.Charts": "0.2.3",
           "Antlr3.Runtime": "3.5.2-rc1",
           "ChartJs.Blazor.Fork": "2.0.2",
           "FluentNHibernate": "3.1.0",
@@ -30,6 +31,18 @@
         },
         "runtime": {
           "lib/net6.0/AntDesign.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AntDesign.Charts/0.2.3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.0",
+          "OneOf": "2.1.155"
+        },
+        "runtime": {
+          "lib/net5.0/AntDesign.Charts.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1329,6 +1342,13 @@
       "sha512": "sha512-RfeGUDyMo2YTr0uS2dutIqPMbNOthPisP9Y5IQXOzeBA8IvTGnmKtpovHk8ExgddnvwX9/dpD3USGi5xK729BQ==",
       "path": "antdesign/0.12.7",
       "hashPath": "antdesign.0.12.7.nupkg.sha512"
+    },
+    "AntDesign.Charts/0.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SMlrFA4C6sVOIvxRpx0kHnnJ3wa2hq7qyeasZ2+HY+s3agy7l6vO1ERrsmS5HS+9HvZB0Ry7IMp5G7pSjFZzNw==",
+      "path": "antdesign.charts/0.2.3",
+      "hashPath": "antdesign.charts.0.2.3.nupkg.sha512"
     },
     "Antlr3.Runtime/3.5.2-rc1": {
       "type": "package",

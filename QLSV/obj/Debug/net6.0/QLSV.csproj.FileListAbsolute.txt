@@ -77,3 +77,5 @@ C:\LearnC#\QLSV\QLSV\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Dat
 C:\LearnC#\QLSV\QLSV\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\LearnC#\QLSV\QLSV\bin\Debug\net6.0\ChartJs.Blazor.dll
 C:\LearnC#\QLSV\QLSV\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\LearnC#\QLSV\QLSV\obj\Debug\net6.0\scopedcss\Pages\StudentData.razor.rz.scp.css
+C:\LearnC#\QLSV\QLSV\bin\Debug\net6.0\AntDesign.Charts.dll

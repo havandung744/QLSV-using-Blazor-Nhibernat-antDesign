@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "sgRNNXSjMO65UfhiZll10pa212sStBM7aDDHpchZyiDX8l/ONLwrPtgewXmIe6j0vBAho5giwvEtAQUKqfYfQQ==",
+  "dgSpecHash": "jettSlDiAWwUXEO+B3dOePnwaVP3rk+Kj/NeIHCaK5tBxvqXd5SufP5/gqk5F1gD5fPYSJj0uHm9qC/Y1Tb3Yw==",
   "success": true,
   "projectFilePath": "C:\\LearnC#\\QLSV\\QLSV\\QLSV.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hdung\\.nuget\\packages\\antdesign\\0.12.7\\antdesign.0.12.7.nupkg.sha512",
+    "C:\\Users\\hdung\\.nuget\\packages\\antdesign.charts\\0.2.3\\antdesign.charts.0.2.3.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\antlr3.runtime\\3.5.2-rc1\\antlr3.runtime.3.5.2-rc1.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\hdung\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

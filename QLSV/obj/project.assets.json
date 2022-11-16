@@ -22,6 +22,25 @@
           "buildMultiTargeting/AntDesign.props": {}
         }
       },
+      "AntDesign.Charts/0.2.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.5",
+          "OneOf": "2.1.151"
+        },
+        "compile": {
+          "lib/net5.0/AntDesign.Charts.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/AntDesign.Charts.dll": {}
+        },
+        "build": {
+          "buildTransitive/AntDesign.Charts.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/AntDesign.Charts.props": {}
+        }
+      },
       "Antlr3.Runtime/3.5.2-rc1": {
         "type": "package",
         "dependencies": {
@@ -2512,6 +2531,24 @@
         "staticwebassets/less/upload/style/index.less",
         "staticwebassets/less/upload/style/patch.less",
         "staticwebassets/less/upload/style/rtl.less"
+      ]
+    },
+    "AntDesign.Charts/0.2.3": {
+      "sha512": "SMlrFA4C6sVOIvxRpx0kHnnJ3wa2hq7qyeasZ2+HY+s3agy7l6vO1ERrsmS5HS+9HvZB0Ry7IMp5G7pSjFZzNw==",
+      "type": "package",
+      "path": "antdesign.charts/0.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "antdesign.charts.0.2.3.nupkg.sha512",
+        "antdesign.charts.nuspec",
+        "build/AntDesign.Charts.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/AntDesign.Charts.props",
+        "buildTransitive/AntDesign.Charts.props",
+        "lib/net5.0/AntDesign.Charts.dll",
+        "lib/netstandard2.1/AntDesign.Charts.dll",
+        "staticwebassets/ant-design-charts-blazor.js"
       ]
     },
     "Antlr3.Runtime/3.5.2-rc1": {
@@ -7685,6 +7722,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AntDesign >= 0.12.7",
+      "AntDesign.Charts >= 0.2.3",
       "Antlr3.Runtime >= 3.5.2-rc1",
       "ChartJs.Blazor.Fork >= 2.0.2",
       "FluentNHibernate >= 3.1.0",
@@ -7737,6 +7775,10 @@
           "AntDesign": {
             "target": "Package",
             "version": "[0.12.7, )"
+          },
+          "AntDesign.Charts": {
+            "target": "Package",
+            "version": "[0.2.3, )"
           },
           "Antlr3.Runtime": {
             "target": "Package",

@@ -5,7 +5,7 @@ namespace QLSV.Data
     public class StudentViewModel
     {
         public string id;
-        [Display(Name = "No.")]
+        [Display(Name = "STT")]
         public int stt { get; set; }
 
         [Display(Name = "Tên sinh viên")]

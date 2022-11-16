@@ -1,4 +1,5 @@
-using NHibernate;
+﻿using NHibernate;
+using NHibernate.Linq;
 using ISession = NHibernate.ISession;
 
 namespace QLSV.Data
@@ -24,78 +25,15 @@ namespace QLSV.Data
 
         public async Task<Student> GetStudentByIdAsync(string id)
         {
-            {
-                Student st = new Student();
-                List<Student> students;
-                try
-                {
-                    using (ISession session = FluentNHibernateHelper.OpenSession())
-                    {
-                        students = session.Query<Student>().ToList();
-                    }
-                    if (students != null)
-                    {
-                        st = students.Where(c => c.Id == id).FirstOrDefault();
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
-                return st;
-            }
-        }
-        public async Task<bool> AddStudent(Student student)
-        {
-            using (var session = FluentNHibernateHelper.OpenSession())
-            {
-                using (var tran = session.BeginTransaction())
-                {
-                    try
-                    {
-                        session.Save(student);
-
-                        tran.Commit();
-                        return true;
-                    }
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        throw ex;
-                        return false;
-                    }
-                }
-            }
-        }
-
-        public async Task<bool> UpdateStudent(Student student)
-        {
-            bool result = false;
-            //if (student.Id == null)
-            //{
-            //    //insert 
-            //    //new guid
-            //}
-            //else
-            //{
-            //    //update
-            //}
-
-            //Student st = GetStudentByIdAsync(student.Id);
-            //st.Sex = student.Sex;
-            //st.Literature = student.Literature;
-            //st.English = student.English;
-            // to go
+            Student student;
             using (var session = FluentNHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     try
                     {
-                        session.Update(student);
-                        await transaction.CommitAsync();
-                        result = true;
+                       student = session.Get<Student>(id);
+                        return student;
                     }
                     catch (Exception ex)
                     {
@@ -104,7 +42,6 @@ namespace QLSV.Data
                     }
                 }
             }
-            return result;
         }
 
         public async Task<bool> AddOrUpdateStudent(Student student)
@@ -138,7 +75,67 @@ namespace QLSV.Data
             return result;
         }
 
+        public async Task<bool> DeleteStudentAsync(Student student)
+        {
+            bool result = false;
+            using (var session = FluentNHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    try
+                    {
+                       
+                        await session.DeleteAsync(student);
+                        await transaction.CommitAsync();
+                        result = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        await transaction.RollbackAsync();
+                        throw ex;
+                    }
+                }
+            }
+            return result;
+        }
 
+        public async Task<List<Student>> GetListStudentsBySearchAsync(string searchName)
+        {
+            using (var session = FluentNHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    try
+                    {
+                        List<Student> students;
+                        students = session.Query<Student>().Where(c => c.Name.Like('%'+searchName+'%')).ToList();
+                        //await transaction.CommitAsync();
+                        return students;
+                    }
+                    catch (Exception ex)
+                    {
+                        await transaction.RollbackAsync();
+                        throw ex;
+                    }
+                }
+            }
+        }
+
+       public async Task<int> GetTotalStudentByAcademicAbility(string academicAbility)
+        {
+            using (var session = FluentNHibernateHelper.OpenSession())
+            {
+                try
+                {
+                    int total = session.Query<Student>().Where(c => c.AcademicAbility == academicAbility).Count();
+                    return total;
+                }catch(Exception ex)
+                {
+                    throw ex;
+                }
+
+            }
+        }
 
     }
 }

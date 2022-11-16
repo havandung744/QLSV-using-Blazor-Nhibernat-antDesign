@@ -9,9 +9,9 @@ namespace QLSV.Pages
         List<Student> students { get; set; }
         List<StudentViewModel> studentsViewModels { get; set; }
         EditStudent editStudent = new EditStudent();
+        TaskSearchStudent taskSearchStudents = new TaskSearchStudent();
         bool visible = false;
-        int stt;
-        bool isUpdate = false;
+        int stt=1;
         protected override async Task OnInitializedAsync()
         {
             studentsViewModels = new();
@@ -52,7 +52,6 @@ namespace QLSV.Pages
 
         void AddStudent()
          {
-            isUpdate = false;
             var studentData = new Student();
             ShowStudentDetail(studentData);
 
@@ -71,12 +70,35 @@ namespace QLSV.Pages
             visible = false;
         }
 
-        void Edit(StudentViewModel studentViewModel)
+        async Task Edit(StudentViewModel studentViewModel)
         {
-            isUpdate = true;
-            var studentData = students.FirstOrDefault(c => c.Id == studentViewModel.id);
-            ShowStudentDetail(studentData);
+            //var studentData = students.FirstOrDefault(c => c.Id == studentViewModel.id);
+            Student student = await studentService.GetStudentByIdAsync(studentViewModel.id);
+            ShowStudentDetail(student);
         }
+
+        async Task DeleteStudent(StudentViewModel studentViewModel)
+        {
+            Student studen = await studentService.GetStudentByIdAsync(studentViewModel.id);
+            await studentService.DeleteStudentAsync(studen);
+            await LoadAsync();
+        }
+
+        public class TaskSearchStudent
+        {
+            public string Name { get; set; }
+        }
+
+        async Task Search()
+        {
+            var name = taskSearchStudents.Name;
+            studentsViewModels.Clear();
+            students = await studentService.GetListStudentsBySearchAsync(name);
+            studentsViewModels = GetViewModels(students);
+            StateHasChanged();
+
+        }
+
     }
 
 }
