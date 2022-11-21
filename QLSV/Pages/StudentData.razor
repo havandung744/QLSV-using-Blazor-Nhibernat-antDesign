@@ -2,21 +2,45 @@
 @using QLSV.Data
 @using System.ComponentModel
 @using AntDesign.TableModels
+@using QLSV.Data.Service
+@using BlazorInputFile
+@inject IFileUpload fileUpload
 <PageTitle>Student</PageTitle>
-<Button Type="primary" @onclick="AddStudent">Thêm</Button>
+<div style="display: flex; align-items: center">
+    <Button Type="primary" @onclick="AddStudent" Style="margin-right:10px">Thêm</Button>
+    @*<BlazorInputFile.InputFile OnChange="LoadFile"></InputFile>*@
+    <BlazorInputFile.InputFile OnChange="LoadFile"></BlazorInputFile.InputFile>
+    @if (file != null)
+    {
+        <p>Name:@file.Name</p>
+        <p>Name:@file.RelativePath</p>
+        <Button OnClick="InputFile">UpLoad</Button>
+    }
+</div>
 <br>
 <Form Model="@taskSearchStudents" Style="display:flex; margin-top: 10px"
       OnFinish="Search">
-                    <FormItem Style="width: 70%">  
-                        <Input @bind-Value="@context.Name"/>
-                    </FormItem>
-                    <FormItem WrapperColOffset="8" WrapperColSpan="16">
-                        <Button Type="@ButtonType.Primary" HtmlType="submit">
-                            Tìm kiếm
-                        </Button>
-                    </FormItem>
-                </Form>
-<Table TItem="StudentViewModel" DataSource="studentsViewModels" PageSize="10">
+    <FormItem Style="width: 70%">
+        <Input @bind-Value="@context.Name" />
+    </FormItem>
+    <FormItem WrapperColOffset="8" WrapperColSpan="16">
+        <Button Type="@ButtonType.Primary" HtmlType="submit">
+            Tìm kiếm
+        </Button>
+    </FormItem>
+</Form>
+
+<div>
+    @*<InputFile OnChange="LoadFile"></InputFile>*@
+    @* @if (file != null)
+    {
+    <p>Name:@file.Name</p>
+    <p>Name:@file.RelativePath</p>
+    <Button OnClick="InputFile">UpLoad</Button>
+    }*@
+</div>
+
+<Table DataSource="studentsViewModels" PageSize="10" Loading="@loading">
     <Column @bind-Field="context.stt" Sortable></Column>
     <Column @bind-Field="context.ten" Sortable></Column>
     <Column @bind-Field="context.gioitinh">@(context.gioitinh==0 ? "Nam" : "Nữ")</Column>
@@ -26,9 +50,8 @@
     <Column @bind-Field="context.diemvan"></Column>
     <Column @bind-Field="context.diemtb" Sortable></Column>
     <Column @bind-Field="context.hocluc"></Column>
-    <ActionColumn Title="Hành động" Fixed="right" Class="btn-link">
-        <Icon Type="edit" Theme="outline" @onclick="() => Edit(context)" Width="20" Height="20" />
-       
+    <ActionColumn Title="Hành động">
+        <Icon Type="edit" Theme="outline" @onclick="() => Edit(context)" Width="20" Height="20" Style="margin-right: 10px" />
         <Popconfirm Title="Xác nhận xóa?"
                     OnConfirm="()=> DeleteStudent(context)"
                     OkText="Có"
@@ -38,7 +61,7 @@
     </ActionColumn>
 </Table>
 
-<Drawer Closable="true" Visible="visible" Placement="right" Width=500 Title='("Sinh Viên")' OnClose="() => visible = false">  
+<Drawer Closable="true" Visible="visible" Placement="right" Width=500 Title='("Sinh Viên")' OnClose="() => visible = false">
     <EditStudent @ref="editStudent" Cancel="() => visible = false" ValueChange="Save"></EditStudent>
 </Drawer>
 

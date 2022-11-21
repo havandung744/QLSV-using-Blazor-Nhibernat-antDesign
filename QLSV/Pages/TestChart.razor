@@ -1,12 +1,30 @@
 ﻿@page "/columnChart"
 <Tabs>
-    <TabPane Key="2">
+    <TabPane Key="1">
         <TabTemplate>Biểu đồ</TabTemplate>
+        <ChildContent>
+            <AntDesign.Charts.Column Data="data1" Config="config2" />
+        </ChildContent>
+    </TabPane>
+    <TabPane Key="2">
+        <TabTemplate>Toán</TabTemplate>
+        <ChildContent>
+            <AntDesign.Charts.Column Data="data2" Config="config2" />
+        </ChildContent>
+    </TabPane>
+    <TabPane Key="3">
+        <TabTemplate>Văn</TabTemplate>
         <ChildContent>
             <AntDesign.Charts.Column Data="data3" Config="config2" />
         </ChildContent>
     </TabPane>
+    <TabPane Key="4">
+        <TabTemplate>Anh</TabTemplate>
+        <ChildContent>
+            <AntDesign.Charts.Column Data="data4" Config="config2" />
+        </ChildContent>
+    </TabPane>
 </Tabs>
 
-@code{
+@code {
 }

@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using NHibernate.Linq;
+using QLSV.Data.Service;
 using ISession = NHibernate.ISession;
 
 namespace QLSV.Data
@@ -32,12 +33,12 @@ namespace QLSV.Data
                 {
                     try
                     {
-                       student = session.Get<Student>(id);
+                        student = await session.GetAsync<Student>(id);
                         return student;
                     }
                     catch (Exception ex)
                     {
-                        await transaction.RollbackAsync();
+                        //await transaction.RollbackAsync();
                         throw ex;
                     }
                 }
@@ -56,7 +57,7 @@ namespace QLSV.Data
                         if (string.IsNullOrEmpty(student.Id))
                         {
                             student.Id = Guid.NewGuid().ToString();
-                           await session.SaveAsync(student);
+                            await session.SaveAsync(student);
                         }
                         else
                         {
@@ -84,7 +85,7 @@ namespace QLSV.Data
                 {
                     try
                     {
-                       
+
                         await session.DeleteAsync(student);
                         await transaction.CommitAsync();
                         result = true;
@@ -108,7 +109,7 @@ namespace QLSV.Data
                     try
                     {
                         List<Student> students;
-                        students = session.Query<Student>().Where(c => c.Name.Like('%'+searchName+'%')).ToList();
+                        students = session.Query<Student>().Where(c => c.Name.Like('%' + searchName + '%')).ToList();
                         //await transaction.CommitAsync();
                         return students;
                     }
@@ -121,7 +122,7 @@ namespace QLSV.Data
             }
         }
 
-       public async Task<int> GetTotalStudentByAcademicAbility(string academicAbility)
+        public async Task<int> GetTotalStudentByAcademicAbility(string academicAbility)
         {
             using (var session = FluentNHibernateHelper.OpenSession())
             {
@@ -129,12 +130,69 @@ namespace QLSV.Data
                 {
                     int total = session.Query<Student>().Where(c => c.AcademicAbility == academicAbility).Count();
                     return total;
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     throw ex;
                 }
 
             }
+        }
+
+        public async Task<int> GetTotalStudentBySubjects(string subjectName, float min, float max)
+        {
+            using (var session = FluentNHibernateHelper.OpenSession())
+            {
+                try
+                {
+                    int total = 0;
+                    if (subjectName == "Math")
+                    {
+                        total = session.Query<Student>().Where(c => c.Math >= min && c.Math < max).Count();
+                    }
+                    else if (subjectName == "English")
+                    {
+                        total = session.Query<Student>().Where(c => c.English >= min && c.English < max).Count();
+                    }
+                    else if (subjectName == "Literature")
+                    {
+                        total = session.Query<Student>().Where(c => c.Literature >= min && c.Literature < max).Count();
+                    }
+                    return total;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async Task<bool> AddStudents(List<Student> students)
+        {
+            bool result = false;
+            using (var session = FluentNHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach(var student in students)
+                        {
+                            student.Id = Guid.NewGuid().ToString();
+                            session.Save(student);
+                        }
+                        transaction.Commit();
+                        result = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        await transaction.RollbackAsync();
+                        throw ex;
+                    }
+                }
+            }
+            return result;
         }
 
     }

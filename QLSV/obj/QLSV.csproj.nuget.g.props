@@ -24,6 +24,7 @@
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)chartjs.blazor.fork\2.0.2\buildTransitive\ChartJs.Blazor.Fork.props" Condition="Exists('$(NuGetPackageRoot)chartjs.blazor.fork\2.0.2\buildTransitive\ChartJs.Blazor.Fork.props')" />
+    <Import Project="$(NuGetPackageRoot)blazorinputfile\0.2.0\buildTransitive\BlazorInputFile.props" Condition="Exists('$(NuGetPackageRoot)blazorinputfile\0.2.0\buildTransitive\BlazorInputFile.props')" />
     <Import Project="$(NuGetPackageRoot)antdesign.charts\0.2.3\buildTransitive\AntDesign.Charts.props" Condition="Exists('$(NuGetPackageRoot)antdesign.charts\0.2.3\buildTransitive\AntDesign.Charts.props')" />
     <Import Project="$(NuGetPackageRoot)antdesign\0.12.7\buildTransitive\AntDesign.props" Condition="Exists('$(NuGetPackageRoot)antdesign\0.12.7\buildTransitive\AntDesign.props')" />
   </ImportGroup>

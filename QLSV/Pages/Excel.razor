@@ -1,0 +1,12 @@
+﻿@page "/Excel"
+@using System.IO;
+@using QLSV;
+@using QLSV.Data
+@using QLSV.Data.Service
+@inject IJSRuntime jsruntime
+@inject IFileUpload fileUpload
+
+<div>
+<button class="btn btn-primary" @onclick="CreateDocument">Create Document</button>
+</div>
+

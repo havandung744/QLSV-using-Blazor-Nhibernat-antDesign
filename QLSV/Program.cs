@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using QLSV.Data;
+using QLSV.Data.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,9 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddAntDesign();
 builder.Services.AddSingleton<IStudentService, StudentService>();
-builder.Services.AddSingleton<StudentService>();
+builder.Services.AddSingleton<IFileUpload, FileUpload>();
+
+
 
 var app = builder.Build();
 
